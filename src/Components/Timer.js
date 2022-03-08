@@ -7,10 +7,6 @@ function Timer() {
     const [timerState, setClockState] = useState(20);
     const [pauseState, setPauseState] = useState(false);
 
-    function startTimer() {
-        setPauseState(true)
-    }
-
     function updateTimer() {
         console.log(pauseState)
         if (pauseState & timerState > 0) {
@@ -25,7 +21,7 @@ function Timer() {
     return (
         <tbody>
             <tr>
-                <td><MdPause onClick={() => setPauseState(!pauseState) }/></td>
+                <td><MdPause onClick={() => setPauseState(!pauseState)} /></td>
                 <td>{timerState}</td>
                 <td>{Boolean.prototype.toString(pauseState)}</td>
             </tr>
