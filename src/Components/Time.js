@@ -1,9 +1,20 @@
 import React from 'react';
+import { MdPause, MdPlayArrow } from "react-icons/md"
 
-function Time( {clock} ) {
+function Time( {active, handleChangeActive} ) {
     return (
         <td>
-            TBD
+            {active ? (
+                <MdPause 
+                    className="active"
+                    onClick={() => handleChangeActive()}
+                />
+            ) : (
+                <MdPlayArrow 
+                    className="inactive"
+                    onClick={() => handleChangeActive()}
+                /> 
+            )}
         </td>
     )
 }

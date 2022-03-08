@@ -8,7 +8,9 @@ function App() {
         <h1>Poker Clock</h1>
       </header>
       <main className="App-main">
-        <Timer />
+        <table>
+          <Timer />
+        </table>
       </main>
       <footer>
         <p>&copy; Alex Henner 2022</p>
