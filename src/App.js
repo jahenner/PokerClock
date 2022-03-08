@@ -1,7 +1,9 @@
 import './App.css';
-import Timer from './Components/Timer'
+import Clock from './Components/Clock'
+import { useState } from 'react'
 
 function App() {
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -9,7 +11,7 @@ function App() {
       </header>
       <main className="App-main">
         <table>
-          <Timer />
+          <Clock />
         </table>
       </main>
       <footer>
