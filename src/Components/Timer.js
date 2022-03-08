@@ -1,30 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import Time from './Time';
+import { MdPause, MdPlayArrow } from "react-icons/md"
 
 
 function Timer() {
-    const [timerState, setClockState] = useState(20)
-    const [pauseState, setPauseState] = useState(false)
+    const [timerState, setClockState] = useState(20);
+    const [pauseState, setPauseState] = useState(false);
 
-    const handleChangeActive = () => {
-        setPauseState((previous) => {
-            return !previous
-        });
-    };
+    function startTimer() {
+        setPauseState(true)
+    }
+
+    function updateTimer() {
+        console.log(pauseState)
+        if (pauseState & timerState > 0) {
+            setClockState(timerState - 1);
+        }
+    }
 
     useEffect(() => {
-        setInterval(() => {
-            if (pauseState) {
-                setClockState(timerState - 1);
-            };
-        }, 1000);
-        
-    }, [handleChangeActive]);
+        setInterval(updateTimer, 1000);
+    }, []);
+
     return (
         <tbody>
             <tr>
-                <Time active={pauseState} handleChangeActive={handleChangeActive} />
+                <td><MdPause onClick={() => setPauseState(!pauseState) }/></td>
                 <td>{timerState}</td>
+                <td>{Boolean.prototype.toString(pauseState)}</td>
             </tr>
         </tbody>
         
